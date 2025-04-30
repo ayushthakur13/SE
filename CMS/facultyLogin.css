@@ -1,0 +1,127 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;}
+
+body {
+    height: 100vh;
+    background: url('images/college_image2.png') no-repeat center center fixed;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(203, 194, 194, 0.3);
+    backdrop-filter: blur(10px);
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    border-right: 2px solid white;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.logo img {
+    width: 300px;
+    margin-bottom: 1rem;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+input {
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.login-form button {
+    align-self: center;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #1E2749;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #273469;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.google-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem;
+    margin-bottom: 0.8rem;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 65%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.google-btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.google-btn:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.forgot-password a {
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #ddd;
+}

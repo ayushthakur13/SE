@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Assessments</title>
+    <link rel="stylesheet" href="studentAssessment.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="back-arrow" aria-label="Go back">←</a>
+        <h1>Assessments</h1>
+        <button class="logout-btn" aria-label="Logout" onclick="window.location.href='index.html'">Logout</button>
+    </header>
+
+    <!-- Top Section -->
+    <section class="top-section">
+        <div class="student-info">
+            <img src="images/student_image.png" alt="Student Photo" class="student-photo">
+            <div class="student-details">
+                <h2>Raj Andakat</h2>
+                <p>Student ID: 230879</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <div class="attendance-card">
+            <p class="attendance-title">Attendance</p>
+            <h2 class="attendance-percent">85%</h2>
+            <p class="attendance-score">85/100</p>
+        </div>
+
+        <div class="assessment-tracker">
+            <h3>Assessment Tracker</h3>
+            <p>Completed Assessments: 18/24</p>
+            <div class="progress-container">
+                <div class="progress-bar" data-progress="75"></div>
+            </div>
+            <p class="progress-text">Keep pushing! Almost done 🏆</p>
+        </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+        <a href="studentDashboard.html" class="tab">General</a>
+        <a href="javascript:void(0)" class="active">Assessments</a>
+        <a href="studentAssignment.html" class="tab">Assignment</a>
+        <a href="studentClasses.html" class="tab">Classes</a>
+        <a href="studentFees.html" class="tab">Fees</a>
+    </nav>
+
+    <!-- Assessment Statistics -->
+    <section class="assessment-stats">
+        <p>Total Exams: <b>24</b> &nbsp; Attempted: <b>20</b> &nbsp; Unattempted: <b>4</b> &nbsp; 
+            <span class="green">Passed: 18</span> &nbsp; <span class="red">Failed: 2</span>
+        </p>
+    </section>
+
+    <!-- Assessments List -->
+    <section class="assessments-container">
+        <div class="assessments">
+            <div class="card failed">
+                <h3>Data Structures and Algorithms</h3>
+                <p><b>Subject:</b> DSA</p>
+                <p>📅 3-01-2023 🕒 12:30 AM - 01:40 PM</p>
+                <p>Passing Percentage: <span class="blue">70%</span></p>
+                <p>Scored Percentage: <span class="red">65%</span></p>
+                <button class="view-btn">View Details</button>
+            </div>
+
+            <div class="card missed">
+                <h3>DBMS - Mid Sem</h3>
+                <p><b>Subject:</b> DBMS</p>
+                <p>📅 3-01-2023 🕒 12:30 AM - 01:40 PM</p>
+                <p>Passing Percentage: <span class="blue">70%</span></p>
+                <p>Scored Percentage: <span class="red">0%</span></p>
+                <button class="view-btn">View Details</button>
+            </div>
+
+            <div class="card passed">
+                <h3>Exploratory Data Analysis</h3>
+                <p><b>Subject:</b> ADS</p>
+                <p>📅 3-01-2023 🕒 12:30 AM - 01:40 PM</p>
+                <p>Passing Percentage: <span class="blue">70%</span></p>
+                <p>Scored Percentage: <span class="green">75%</span></p>
+                <button class="view-btn">View Details</button>
+            </div>
+            
+        </div>
+
+        <div class="see-all">
+            <button class="see-all-btn">See All →</button>
+        </div>
+    </section>
+
+    <!-- Upcoming Exams -->
+    <h2 class="upcoming-heading">Upcoming</h2>
+    <section class="upcoming">
+        <div class="card">
+            <h3>SE - Lab Exam</h3>
+            <p><b>Subject:</b> SE</p>
+            <p>📅 1-11-2023 🕒 12:30 AM - 01:40 PM</p>
+            <p>Passing Percentage: <span class="blue">70%</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Design Thinking - Quiz</h3>
+            <p><b>Subject:</b> DT</p>
+            <p>📅 3-11-2023 🕒 12:30 AM - 01:40 PM</p>
+            <p>Passing Percentage: <span class="blue">70%</span></p>
+        </div>
+    </section>
+
+</body>
+</html>

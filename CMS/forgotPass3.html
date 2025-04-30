@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Password</title>
+    <link rel="stylesheet" href="forgotPass3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <a href="forgotPass2.html" class="back-arrow">&larr;</a>
+            <img src="images/bmu_logo.png" alt="BML Munjal University Logo" class="logo">
+            <h1>New Password</h1>
+            <p class="description">Set the new password for your account so you can login and access all features.</p>
+
+            <form action="#">
+                <div class="input-group">
+                    <label for="new-password">Enter new password</label>
+                    <input type="password" id="new-password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm password</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+
+                <button type="button" class="update-button" onclick="window.location.href='forgotPass4.html'">
+                    UPDATE PASSWORD
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

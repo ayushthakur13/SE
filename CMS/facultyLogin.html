@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Login</title>
+    <link rel="stylesheet" href="facultyLogin.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="overlay">
+        <div class="logo">
+            <img src="images/BMU_logo.png" alt="University Logo">
+        </div>
+        
+        <form class="login-form" id="loginForm">
+            <input type="text" id="faculty-id" placeholder="Faculty ID" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        
+
+        <div class="google-login">
+            <button class="google-btn" onclick="window.location.href='googleLogin.html'">
+                <img src="images/Google Icon.png" alt="Google Icon">
+                Login with Google
+            </button>
+        </div>
+
+        <div class="forgot-password">
+            <a href="forgotPass1.html">Forgot Password?</a>
+        </div>
+    </div>
+
+      
+</body>
+</html>

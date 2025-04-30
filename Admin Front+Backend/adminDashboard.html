@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="flex h-screen">
+    <aside class="w-64 bg-white shadow-md p-4">
+      <div class="text-center mb-6">
+        <img src="images/BMU_logo.png" alt="University Logo" class="mx-auto w-20">
+        <h2 class="text-lg font-semibold text-gray-800">BML Munjal University</h2>
+        <p class="text-xs text-gray-500">A HERO GROUP INITIATIVE</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="mb-4 text-purple-600 font-semibold flex items-center gap-2 bg-purple-100 rounded px-3 py-2">
+            <a href="#" class="flex items-center gap-2 w-full">
+              <img src="images/adminDashboardIcon.jpeg" class="w-5 h-5"> Dashboard
+            </a>
+          </li>
+          <li class="mb-4 text-gray-700 hover:bg-gray-100 rounded px-3 py-2 transition flex items-center gap-2 cursor-pointer">
+            <a href="adminStudents.html" class="flex items-center gap-2 w-full">
+              <img src="images/adminStudentIcon.jpeg" class="w-5 h-5"> Students
+            </a>
+          </li>
+          <li class="text-gray-700 hover:bg-gray-100 rounded px-3 py-2 transition flex items-center gap-2 cursor-pointer">
+            <a href="adminFaculty.html" class="flex items-center gap-2 w-full">
+              <img src="images/adminFacultyIcon.jpeg" class="w-5 h-5"> Teachers
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div class="flex justify-between items-center mb-6 border-b pb-4">
+        <div class="w-2/3 flex justify-center">
+          <input type="text" placeholder="Search Dashboard"
+            class="p-2 border border-gray-300 rounded-lg w-2/3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-xl">&#128276;</span>
+          <span class="text-xl">&#128172;</span>
+          <div class="flex items-center gap-3">
+            <img src="images/ayush_image.jpg" alt="Admin" class="w-10 h-10 rounded-full border border-gray-300 shadow-sm">
+            <div>
+              <p class="text-sm font-medium leading-4">Ayush Pratap Singh</p>
+              <p class="text-xs text-gray-500">Senior Admin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">📊 Academics Overview</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+  <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition min-h-[120px]">
+    <h4 class="text-sm font-medium text-gray-500 mb-1">👨‍🎓 Total Students</h4>
+    <p id="totalStudents" class="text-xl font-semibold text-purple-700">0</p>
+  </div>
+  <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition min-h-[120px]">
+    <h4 class="text-sm font-medium text-gray-500 mb-1">🧑‍🏫 Total Teachers</h4>
+    <p id="totalTeachers" class="text-xl font-semibold text-purple-700">0</p>
+  </div>
+  <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition min-h-[120px]">
+    <h4 class="text-sm font-medium text-gray-500 mb-1">📚 Total Courses</h4>
+    <p class="text-xl font-semibold text-purple-700">0</p>
+  </div>
+  <div class="bg-white p-5 rounded-xl shadow hover:shadow-md transition min-h-[120px]">
+    <h4 class="text-sm font-medium text-gray-500 mb-1">📅 Total Batches</h4>
+    <p class="text-xl font-semibold text-purple-700">0</p>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+    <h2 class="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">👩‍🏫 Faculty</h2>
+    <div onclick="window.location.href='adminFaculty.html'" class="bg-white rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition p-6 cursor-pointer min-h-[250px]">
+      <h4 class="text-lg font-semibold text-gray-800 mb-3">Teachers</h4>
+      <ul id="teacherPreviewList" class="text-sm text-gray-600 space-y-2 overflow-y-auto max-h-[150px] pr-1"></ul>
+      <p id="noTeachersMsg" class="text-gray-400 text-sm hidden">No teachers added yet.</p>
+      <button class="mt-4 text-sm text-purple-600 hover:underline">View All</button>
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">👨‍🎓 Students</h2>
+    <div onclick="window.location.href='adminStudents.html'" class="bg-white rounded-xl shadow hover:shadow-lg hover:-translate-y-1 transition p-6 cursor-pointer min-h-[250px]">
+      <h4 class="text-lg font-semibold text-gray-800 mb-3">Students</h4>
+      <ul id="studentPreviewList" class="text-sm text-gray-600 space-y-2 overflow-y-auto max-h-[150px] pr-1"></ul>
+      <p id="noStudentsMsg" class="text-gray-400 text-sm hidden">No students added yet.</p>
+      <button class="mt-4 text-sm text-purple-600 hover:underline">View All</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+    </main>
+  </div>
+
+  <script>
+    let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+    let students = JSON.parse(localStorage.getItem('students')) || [];
+
+    function renderTeacherPreviewList() {
+  const teacherList = document.getElementById('teacherPreviewList');
+  const noTeachersMsg = document.getElementById('noTeachersMsg');
+  teacherList.innerHTML = '';
+  if (teachers.length === 0) {
+    noTeachersMsg.classList.remove('hidden');
+  } else {
+    noTeachersMsg.classList.add('hidden');
+    teachers.slice(0, 5).forEach(teacher => {
+      const li = document.createElement('li');
+      li.className = 'py-2 border-b border-gray-200';
+      li.innerHTML = `<strong class="text-indigo-600">${teacher.name}</strong> (ID: ${teacher.id})`;
+      teacherList.appendChild(li);
+    });
+  }
+}
+
+function renderStudentPreviewList() {
+  const studentList = document.getElementById('studentPreviewList');
+  const noStudentsMsg = document.getElementById('noStudentsMsg');
+  studentList.innerHTML = '';
+  if (students.length === 0) {
+    noStudentsMsg.classList.remove('hidden');
+  } else {
+    noStudentsMsg.classList.add('hidden');
+    students.slice(0, 5).forEach(student => {
+      const li = document.createElement('li');
+      li.className = 'py-2 border-b border-gray-200';
+      li.innerHTML = `<strong class="text-indigo-600">${student.name}</strong> (ID: ${student.id})`;
+      studentList.appendChild(li);
+    });
+  }
+}
+
+    function updateCounts() {
+      document.getElementById('totalStudents').textContent = `Total Students: ${students.length}`;
+      document.getElementById('totalTeachers').textContent = `Total Teachers: ${teachers.length}`;
+    }
+
+    renderTeacherPreviewList();
+    renderStudentPreviewList();
+    updateCounts();
+  </script>
+</body>
+</html>

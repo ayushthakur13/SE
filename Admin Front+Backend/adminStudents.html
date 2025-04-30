@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Student Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="flex h-screen">
+    <aside class="w-64 bg-white shadow-md p-4">
+      <div class="text-center mb-6">
+        <img src="images/BMU_logo.png" alt="University Logo" class="mx-auto w-20">
+        <h2 class="text-lg font-medium">BML Munjal University</h2>
+        <p class="text-xs text-gray-500">A HERO GROUP INITIATIVE</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="text-gray-700 flex items-center gap-2 cursor-pointer">
+            <a href="adminDashboard.html">
+              <img src="images/adminDashboardIcon.jpeg" class="w-5 h-5"> Dashboard
+            </a>
+          </li>
+          <li class="mb-4 text-purple-600 font-semibold flex items-center gap-2">
+            <a href="#">
+              <img src="images/adminStudentIcon.jpeg" class="w-5 h-5"> Students
+            </a>
+          </li>
+          <li class="text-gray-700 flex items-center gap-2 cursor-pointer">
+            <a href="adminFaculty.html">
+              <img src="images/adminFacultyIcon.jpeg" class="w-5 h-5"> Teachers
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-medium">Welcome Ayush</h1>
+        <span id="studentCount" class="font-medium">Total Students: 0</span>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-4">
+        <button onclick="toggleAddStudentModal()" class="bg-purple-600 text-white px-4 py-2 rounded">+ Add Student</button>
+        <button onclick="toggleAddDefaulterModal()" class="bg-purple-600 text-white px-4 py-2 rounded">+ Add Defaulter</button>
+        <button onclick="toggleAddResultModal()" class="bg-purple-600 text-white px-4 py-2 rounded">+ Add Result</button>
+      </div>
+
+      <!-- Add Defaulter Modal -->
+      <div id="addDefaulterModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg">
+          <h2 class="text-xl font-medium mb-4">Add Defaulter</h2>
+          <input id="defaulterId" type="text" placeholder="ID" class="p-2 border rounded w-full mb-4" />
+          <input id="defaulterName" type="text" placeholder="Name" class="p-2 border rounded w-full mb-4" />
+          <input id="defaulterRemark" type="text" placeholder="Remark" class="p-2 border rounded w-full mb-4" />
+          <div class="flex justify-end gap-4">
+            <button onclick="addDefaulter()" class="bg-purple-600 text-white px-4 py-2 rounded">Add Defaulter</button>
+            <button onclick="toggleAddDefaulterModal()" class="bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Student Modal -->
+      <div id="addStudentModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg">
+          <h2 class="text-xl font-medium mb-4">Add Student</h2>
+          <input id="studentId" type="text" placeholder="ID" class="p-2 border rounded w-full mb-4" />
+          <input id="studentName" type="text" placeholder="Name" class="p-2 border rounded w-full mb-4" />
+          <input id="studentBatch" type="text" placeholder="Batch" class="p-2 border rounded w-full mb-4" />
+          <div class="flex justify-end gap-4">
+            <button onclick="addOrUpdateStudent()" class="bg-purple-600 text-white px-4 py-2 rounded">Add Student</button>
+            <button onclick="toggleAddStudentModal()" class="bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Result Modal -->
+      <div id="addResultModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg">
+          <h2 class="text-xl font-medium mb-4">Add Result</h2>
+          <input id="resultId" type="text" placeholder="Student ID" class="p-2 border rounded w-full mb-4" />
+          <input id="Subject" type="text" placeholder="Subject" class="p-2 border rounded w-full mb-4" />
+          <input id="Batch" type="text" placeholder="Batch" class="p-2 border rounded w-full mb-4" />
+          <input id="resultGrade" type="text" placeholder="Grade" class="p-2 border rounded w-full mb-4" />
+          <div class="flex justify-end gap-4">
+            <button onclick="addResult()" class="bg-purple-600 text-white px-4 py-2 rounded">Add Result</button>
+            <button onclick="toggleAddResultModal()" class="bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-3 gap-6">
+        <!-- Students Table -->
+        <div class="bg-white shadow-md p-6 rounded-lg border border-gray-300">
+          <h4 class="text-md font-medium mb-2">Students</h4>
+          <input oninput="filterTable('studentsTable', this.value)" type="text" placeholder="Search Students..." class="mb-4 p-2 border rounded w-full">
+          <table id="studentsTable" class="w-full text-left text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-gray-300 text-gray-700">
+                <th class="p-2">ID</th>
+                <th class="p-2">Name</th>
+                <th class="p-2">Batch</th>
+                <th class="p-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button onclick="exportTableToCSV('studentsTable')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">Export Students CSV</button>
+        </div>
+
+        <!-- Defaulters Table -->
+        <div class="bg-white shadow-md p-6 rounded-lg border border-gray-300">
+          <h4 class="text-md font-medium mb-2">Defaulters</h4>
+          <input oninput="filterTable('defaultersTable', this.value)" type="text" placeholder="Search Defaulters..." class="mb-4 p-2 border rounded w-full">
+          <table id="defaultersTable" class="w-full text-left text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-gray-300 text-gray-700">
+                <th class="p-2">ID</th>
+                <th class="p-2">Name</th>
+                <th class="p-2">Remark</th>
+                <th class="p-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button onclick="exportTableToCSV('defaultersTable')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">Export Defaulters CSV</button>
+        </div>
+
+        <!-- Results Table -->
+        <div class="bg-white shadow-md p-6 rounded-lg border border-gray-300">
+          <h4 class="text-md font-medium mb-2">Results</h4>
+          <input oninput="filterTable('resultsTable', this.value)" type="text" placeholder="Search Results..." class="mb-4 p-2 border rounded w-full">
+          <table id="resultsTable" class="w-full text-left text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-gray-300 text-gray-700">
+                <th class="p-2">Student ID</th>
+                <th class="p-2">Subject</th>
+                <th class="p-2">Batch</th>
+                <th class="p-2">Grade</th>
+                <th class="p-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button onclick="exportTableToCSV('resultsTable')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">Export Results CSV</button>
+        </div>
+      </div>
+
+      <div id="toast" class="toast">Student added/edited successfully!</div>
+    </main>
+  </div>
+
+  <script>
+    let students = JSON.parse(localStorage.getItem('students')) || [];
+let currentEditingStudentId = null;  // Added this flag
+
+// Toggle the modal for adding/editing a student
+function toggleAddStudentModal(id = null) {
+  const modal = document.getElementById('addStudentModal');
+  const button = modal.querySelector('button.bg-purple-600');
+  
+  if (id) {
+    currentEditingStudentId = id;
+    const student = students.find(s => s.id === id);
+    document.getElementById('studentId').value = student.id;
+    document.getElementById('studentName').value = student.name;
+    document.getElementById('studentBatch').value = student.batch;
+    button.textContent = 'Update';
+  } else {
+    currentEditingStudentId = null;
+    document.getElementById('studentId').value = '';
+    document.getElementById('studentName').value = '';
+    document.getElementById('studentBatch').value = '';
+    button.textContent = 'Add';
+  }
+  modal.classList.toggle('hidden');
+}
+
+// Add or edit a student
+function addOrUpdateStudent() {
+  const id = document.getElementById('studentId').value.trim();
+  const name = document.getElementById('studentName').value.trim();
+  const batch = document.getElementById('studentBatch').value.trim();
+
+  if (!id || !name || !batch) {
+    showToast('Please fill all fields correctly!', '#f44336');
+    return;
+  }
+
+  // Check if editing or adding a new student
+  if (currentEditingStudentId) {
+    // Check if the ID is unique, but ignore if it's the same student being edited
+    if (students.some(s => s.id === id && s.id !== currentEditingStudentId)) {
+      showToast('ID must be unique!', '#f44336');
+      return;
+    }
+
+    // Find and update the student's details
+    const index = students.findIndex(s => s.id === currentEditingStudentId);
+    students[index] = { id, name, batch };
+    localStorage.setItem('students', JSON.stringify(students));
+    renderStudents();
+    showToast('Student Updated!');
+  } else {
+    // Add a new student
+    if (students.some(s => s.id === id)) {
+      showToast('ID must be unique!', '#f44336');
+      return;
+    }
+
+    students.push({ id, name, batch });
+    localStorage.setItem('students', JSON.stringify(students));
+    renderStudents();
+    showToast('Student Added!');
+  }
+
+  toggleAddStudentModal();
+}
+
+// Show toast notification
+function showToast(message, color = '#4caf50') {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.backgroundColor = color;
+  toast.style.display = 'block';
+  setTimeout(() => toast.style.display = 'none', 3000);
+}
+
+// Render the list of students in the table
+function renderStudents() {
+  const tbody = document.querySelector('#studentsTable tbody');
+  tbody.innerHTML = '';
+  students.forEach(s => {
+    const row = tbody.insertRow();
+    row.innerHTML = `
+      <td class="p-2">${s.id}</td>
+      <td class="p-2">${s.name}</td>
+      <td class="p-2">${s.batch}</td>
+      <td class="p-2">
+        <button class="text-blue-600 hover:underline" title="Click to edit student" onclick="toggleAddStudentModal('${s.id}')">Edit</button>
+        <button class="text-red-600 hover:underline ml-2" title="Delete this record" onclick="deleteStudent('${s.id}')">Delete</button>
+      </td>`;
+  });
+}
+
+// Delete a student
+function deleteStudent(id) {
+  students = students.filter(s => s.id !== id);
+  localStorage.setItem('students', JSON.stringify(students));
+  renderStudents();
+  showToast('Student Deleted!', '#f44336');
+}
+
+// Initial render
+renderStudents();
+
+  </script>
+</body>
+</html>

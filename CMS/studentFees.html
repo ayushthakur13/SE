@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Fees</title>
+    <link rel="stylesheet" href="studentFees.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="back-arrow">←</a>
+        <h1>Student Fees</h1>
+        <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </header>
+
+    <!-- Top Section -->
+    <section class="top-section">
+        <div class="student-info">
+            <img src="images/student_image.png" alt="Student Photo" class="student-photo">
+            <div class="student-details">
+                <h2>Raj Andakat</h2>
+                <p>Student ID: 230879</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <div class="attendance-card">
+            <p class="attendance-title">Attendance</p>
+            <h2 class="attendance-percent">85%</h2>
+            <p class="attendance-score">85/100</p>
+        </div>
+
+        <div class="fees-tracker">
+            <h3>Fees Tracker</h3>
+            <p>Fees Paid: ₹1,50,000 / ₹1,50,000</p>
+            <div class="progress-container">
+                <div class="progress-bar" data-progress="100"></div>
+            </div>
+            <p class="progress-text">All fees are cleared! 🎉</p>
+        </div>
+        
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+        <a href="studentDashboard.html" class="tab">General</a>
+        <a href="studentAssessment.html" class="tab">Assessments</a>
+        <a href="studentAssignment.html" class="tab">Assignment</a>
+        <a href="studentClasses.html" class="tab">Classes</a>
+        <a href="javascript:void(0)" class="active">Fees</a>
+    </nav>
+
+   <!-- Fees Section -->
+<section class="fees-section">
+    <div class="fees-container">
+        <!-- Fees Summary (Vertical Stack) -->
+        <div class="fees-summary">
+            <div class="fee-card">
+                <p>Total Amount</p>
+                <h2>₹ 1,50,000</h2>
+            </div>
+            <div class="fee-card paid">
+                <p>Amount Paid</p>
+                <h2>₹ 1,50,000</h2>
+            </div>
+            <div class="fee-card remaining">
+                <p>Amount Remaining</p>
+                <h2>₹ 0</h2>
+            </div>
+        </div>
+
+        <!-- Fees Details (Horizontal) -->
+        <div class="fees-details">
+            <div class="payment-history">
+                <h3>Payment History</h3>
+                <div class="payment-header">
+                    <p>Date</p>
+                    <p>Amount</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                
+            </div>
+
+            <div class="payment-expected">
+                <h3>Payment Expected</h3>
+                <div class="payment-header">
+                    <p>Date</p>
+                    <p>Amount</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                
+            </div>
+
+            <div class="default-payments">
+                <h3>Default Payments</h3>
+                <div class="payment-header">
+                    <p>Date</p>
+                    <p>Amount</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                <div class="payment-item">
+                    <p>3 Mar 2023</p>
+                    <p>INR 52,526</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>

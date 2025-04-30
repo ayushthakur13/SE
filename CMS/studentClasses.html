@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Classes</title>
+    <link rel="stylesheet" href="studentClasses.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <a href="#" class="back-arrow">←</a>
+        <h1>Classes</h1>
+        <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </header>
+
+    <section class="top-section">
+        <div class="student-info">
+            <img src="images/student_image.png" alt="Student Photo" class="student-photo">
+            <div class="student-details">
+                <h2>Raj Andakat</h2>
+                <p>Student ID: 230879</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <div class="attendance-card">
+            <p class="attendance-title">Attendance</p>
+            <h2 class="attendance-percent">85%</h2>
+            <p class="attendance-score">85/100</p>
+        </div>
+
+    </section>
+
+    <nav class="tabs">
+        <a href="studentDashboard.html" class="tab">General</a>
+        <a href="studentAssessment.html" class="tab">Assessments</a>
+        <a href="studentAssignment.html" class="tab">Assignment</a>
+        <a href="javascript:void(0)" class="active">Classes</a>
+        <a href="studentFees.html" class="tab">Fees</a>
+    </nav>
+
+    <section class="class-stats">
+        <p>Total Classed: <strong>145</strong></p>
+        <p class="green">Present: <strong>116</strong></p>
+        <p class="red">Absent: <strong>29</strong></p>
+    </section>
+
+    <section class="classes-container">
+        <div class="class-card absent">
+            <h3>Database Management System</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status red">Status: Absent</p>
+        </div>
+
+        <div class="class-card absent">
+            <h3>Design and Analysis of Algorithms</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status red">Status: Absent</p>
+        </div>
+
+        <div class="class-card absent">
+            <h3>Object Oriented Programming using JAVA</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status red">Status: Absent</p>
+        </div>
+
+        <div class="class-card present">
+            <h3>Object Oriented Programming using C++</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status green">Status: Present</p>
+        </div>
+
+        <div class="class-card present">
+            <h3>Object Oriented Programming using C++</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status green">Status: Present</p>
+        </div>
+
+        <div class="class-card present">
+            <h3>Object Oriented Programming using C++</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status green">Status: Present</p>
+        </div>
+
+        <div class="class-card present">
+            <h3>Object Oriented Programming using C++</h3>
+            <p>Teacher -</p>
+            <p>🕒 12:40 P.M 📅 03 Jan 2023</p>
+            <p class="status green">Status: Present</p>
+        </div>
+
+        <div class="see-all">
+            <button class="see-all-btn">See All →</button>
+        </div>
+        
+    </section>
+</body>
+</html>

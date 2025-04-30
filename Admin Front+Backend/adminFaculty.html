@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Teachers Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: none;
+    }
+    .active-tab {
+      font-weight: bold;
+      color: #7e22ce;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="flex h-screen">
+    <aside class="w-64 bg-white shadow-md p-4">
+      <div class="text-center mb-6">
+        <img src="images/BMU_logo.png" alt="University Logo" class="mx-auto w-20">
+        <h2 class="text-lg font-medium">BML Munjal University</h2>
+        <p class="text-xs text-gray-500">A HERO GROUP INITIATIVE</p>
+      </div>
+      <nav>
+        <ul>
+          <li class="mb-4 text-gray-700 flex items-center gap-2 cursor-pointer">
+            <a href="adminDashboard.html">
+              <img src="images/adminDashboardIcon.jpeg" class="w-5 h-5"> Dashboard
+            </a>
+          </li>
+
+          <li class="mb-4 text-gray-700 flex items-center gap-2 cursor-pointer">
+            <a href="adminStudents.html">
+              <img src="images/adminStudentIcon.jpeg" class="w-5 h-5"> Students
+            </a>
+          </li>
+
+          <li class="mb-4 text-purple-600 font-semibold flex items-center gap-2">
+            <a href="#" class="active-tab">
+              <img src="images/adminFacultyIcon.jpeg" class="w-5 h-5"> Teachers
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-medium">Welcome Ayush</h1>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-4">
+        <button onclick="toggleAddTeacherModal()" class="bg-purple-600 text-white px-4 py-2 rounded">+ Add Teacher</button>
+      </div>
+
+      <!-- Add Teacher Modal -->
+      <div id="addTeacherModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
+        <div class="bg-white p-6 rounded-lg">
+          <h2 class="text-xl font-medium mb-4">Add Teacher</h2>
+          <input id="teacherId" type="text" placeholder="ID" class="p-2 border rounded w-full mb-4" />
+          <input id="teacherName" type="text" placeholder="Name" class="p-2 border rounded w-full mb-4" />
+          <input id="teacherSubject" type="text" placeholder="Subject" class="p-2 border rounded w-full mb-4" />
+          <input id="teacherSalary" type="number" placeholder="Salary" class="p-2 border rounded w-full mb-4" />
+          <div class="flex justify-end gap-4">
+            <button onclick="addOrUpdateTeacher()" class="bg-purple-600 text-white px-4 py-2 rounded">Add</button>
+            <button onclick="toggleAddTeacherModal()" class="bg-gray-300 text-black px-4 py-2 rounded">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-white shadow-md p-6 rounded-lg border border-gray-300">
+        <h4 class="text-md font-medium mb-2">Teachers</h4>
+        <input oninput="filterTable('teachersTable', this.value)" type="text" placeholder="Search Teachers..." class="mb-4 p-2 border rounded w-full">
+        <table id="teachersTable" class="w-full text-left text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-gray-300 text-gray-700">
+              <th class="p-2">ID</th>
+              <th class="p-2">Name</th>
+              <th class="p-2">Subject</th>
+              <th class="p-2">Salary</th>
+              <th class="p-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button onclick="exportTableToCSV('teachersTable')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded">Export CSV</button>
+      </div>
+
+      <!-- Complaints Box -->
+      <div class="mt-6 bg-white shadow-md p-6 rounded-lg border border-gray-300">
+        <h4 class="text-md font-medium mb-2">Complaints</h4>
+        <textarea class="w-full p-2 border rounded" rows="4" placeholder="Enter complaints or feedback..."></textarea>
+        <button class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Submit Complaint</button>
+      </div>
+
+      <div id="toast" class="toast"></div>
+    </main>
+  </div>
+
+  <script>
+    let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
+    let currentEditingTeacherId = null;  // Added this flag
+
+    // Toggle the modal for adding a teacher
+    function toggleAddTeacherModal(id = null) {
+    const modal = document.getElementById('addTeacherModal');
+    const button = modal.querySelector('button.bg-purple-600');
+    
+    if (id) {
+        currentEditingTeacherId = id;
+        const teacher = teachers.find(t => t.id === id);
+        document.getElementById('teacherId').value = teacher.id;
+        document.getElementById('teacherName').value = teacher.name;
+        document.getElementById('teacherSubject').value = teacher.subject;
+        document.getElementById('teacherSalary').value = teacher.salary;
+        button.textContent = 'Update';
+    } else {
+        currentEditingTeacherId = null;
+        document.getElementById('teacherId').value = '';
+        document.getElementById('teacherName').value = '';
+        document.getElementById('teacherSubject').value = '';
+        document.getElementById('teacherSalary').value = '';
+        button.textContent = 'Add';
+    }
+    modal.classList.toggle('hidden');
+}
+
+    // Add or edit a teacher
+    function addOrUpdateTeacher() {
+        const id = document.getElementById('teacherId').value.trim();
+        const name = document.getElementById('teacherName').value.trim();
+        const subject = document.getElementById('teacherSubject').value.trim();
+        const salary = parseFloat(document.getElementById('teacherSalary').value);
+
+        if (!id || !name || !subject || isNaN(salary) || salary <= 0) {
+            showToast('Please fill all fields correctly!', '#f44336');
+            return;
+        }
+
+        // Check if editing or adding a new teacher
+        if (currentEditingTeacherId) {
+            // Check if the ID is unique, but ignore if it's the same teacher being edited
+            if (teachers.some(t => t.id === id && t.id !== currentEditingTeacherId)) {
+                showToast('ID must be unique!', '#f44336');
+                return;
+            }
+
+            // Find and update the teacher's details
+            const index = teachers.findIndex(t => t.id === currentEditingTeacherId);
+            teachers[index] = { id, name, subject, salary };
+            localStorage.setItem('teachers', JSON.stringify(teachers));
+            renderTeachers();
+            showToast('Teacher Updated!');
+        } else {
+            // Add a new teacher
+            if (teachers.some(t => t.id === id)) {
+                showToast('ID must be unique!', '#f44336');
+                return;
+            }
+
+            teachers.push({ id, name, subject, salary });
+            localStorage.setItem('teachers', JSON.stringify(teachers));
+            renderTeachers();
+            showToast('Teacher Added!');
+        }
+
+        toggleAddTeacherModal();
+    }
+
+    function showToast(message, color = '#4caf50') {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.style.backgroundColor = color;
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 3000);
+    }
+
+    // Render the list of teachers in the table
+    function renderTeachers() {
+        const tbody = document.querySelector('#teachersTable tbody');
+        tbody.innerHTML = '';
+        teachers.forEach(t => {
+            const row = tbody.insertRow();
+            row.innerHTML = `
+                <td class="p-2">${t.id}</td>
+                <td class="p-2">${t.name}</td>
+                <td class="p-2">${t.subject}</td>
+                <td class="p-2">${t.salary}</td>
+                <td class="p-2">
+                    <button class="text-blue-600 hover:underline" title="Click to edit teacher" onclick="toggleAddTeacherModal('${t.id}')">Edit</button>
+                    <button class="text-red-600 hover:underline ml-2" title="Delete this record" onclick="deleteTeacher('${t.id}')">Delete</button>
+                </td>`;
+        });
+    }
+
+    function deleteTeacher(id) {
+        teachers = teachers.filter(t => t.id !== id);
+        localStorage.setItem('teachers', JSON.stringify(teachers));
+        renderTeachers();
+        showToast('Teacher Deleted!', '#f44336');
+    }
+
+    // Initial render
+    renderTeachers();
+</script>
+
+</body>
+</html>

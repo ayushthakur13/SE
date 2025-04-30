@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Assignments</title>
+    <link rel="stylesheet" href="studentAssignment.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="back-arrow" aria-label="Go back">←</a>
+        <h1>Assignments</h1>
+        <button class="logout-btn" aria-label="Logout" onclick="window.location.href='index.html'">Logout</button>
+    </header>
+
+    <!-- Top Section -->
+    <section class="top-section">
+        <div class="student-info">
+            <img src="images/student_image.png" alt="Student Photo" class="student-photo">
+            <div class="student-details">
+                <h2>Raj Andakat</h2>
+                <p>Student ID: 230879</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <div class="attendance-card">
+            <p class="attendance-title">Attendance</p>
+            <h2 class="attendance-percent">85%</h2>
+            <p class="attendance-score">85/100</p>
+        </div>
+
+        <div class="assignment-tracker">
+            <h3>Assignment Tracker</h3>
+            <p id="completedAssignmentsText">Completed Assignments: 0/0</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p id="progressText" class="progress-text">0% completed</p>
+            <p id="completionMessage" class="progress-text" style="display: none;">
+                Awesome! All assignments completed 🎯
+            </p>
+        </div>
+        
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+        <a href="studentDashboard.html" class="tab">General</a>
+        <a href="studentAssessment.html" class="tab">Assessments</a>
+        <a href="javascript:void(0)" class="active">Assignment</a>
+        <a href="studentClasses.html" class="tab">Classes</a>
+        <a href="studentFees.html" class="tab">Fees</a>
+    </nav>
+
+    <!-- Assignment Statistics -->
+    <section class="assignment-stats">
+        <p>Total Assignments: <b>54</b> &nbsp; Attempted: <b>54</b> &nbsp; Unattempted: <b>0</b> &nbsp; 
+            <span class="green">Passed: 54</span> &nbsp; <span class="red">Failed: 0</span>
+        </p>
+    </section>
+
+    <!-- Assignments List -->
+    <section class="assignments-container">
+        <div class="assignments">
+
+            <div class="card upcoming">
+                <h3>Progress Report - Software Engineering</h3>
+                <p><b>Subject:</b> SE</p>
+                <p>📅 12/11/24 🕒 12:00 AM</p>
+                <button class="add-work-btn">Add work</button>
+            </div>
+
+            <div class="card upcoming">
+                <h3>LAB FILE - Database Management System</h3>
+                <p><b>Subject:</b> DBMS</p>
+                <p>📅 12/11/24 🕒 12:00 AM</p>
+                <button class="add-work-btn">Add work</button>
+            </div>
+
+            <div class="card done">
+                <h3>Data Structure of C++ and Java</h3>
+                <p><b>Subject:</b> DSA</p>
+                <p>📅 12/11/24 🕒 12:00 AM</p>
+                <div class="team">
+                    <p>Member 1 ⭐⭐⭐⭐☆</p>
+                    <p>Member 2 ⭐⭐⭐⭐☆</p>
+                    <p>Member 3 ⭐⭐⭐⭐☆</p>
+                    <p>Member 4 ⭐⭐⭐⭐⭐</p>
+                </div>
+                <button class="view-details-btn">View Details</button>
+            </div>
+
+        </div>
+
+        <div class="see-all">
+            <button class="see-all-btn">See All →</button>
+        </div>
+    </section>
+
+    <script src="studentAssignment.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="forgotPass2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <a href="forgotPass1.html" class="back-arrow">&larr;</a>
+            <h1>Verification</h1>
+            <p class="description">Enter your 4 digits code that you received on your email.</p>
+
+            <form action="#">
+                <div class="otp-container">
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                    <input type="text" maxlength="1" required>
+                </div>
+
+                <p class="timer">00:30</p>
+
+                <button type="button" class="continue" onclick="window.location.href='forgotPass3.html'">
+                    CONTINUE
+                </button>
+
+                <p class="resend">
+                    If you didn't receive a code! <a href="#" class="resend-link">Resend</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

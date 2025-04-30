@@ -1,0 +1,98 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;}
+
+body {
+    height: 100vh;
+    background: url('images/college_image2.png') no-repeat center center fixed;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(203, 194, 194, 0.3);
+    backdrop-filter: blur(10px);
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    border-right: 2px solid white;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    width: 300px;
+    margin-bottom: 1rem;
+}
+
+.google-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: #fff;
+    outline: none;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 60%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.google-btn img {
+    width: 25px;
+    height: 25px;
+}
+
+.google-btn:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.back-to-login {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.back-to-login a {
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-to-login a:hover {
+    color: #ddd;
+}

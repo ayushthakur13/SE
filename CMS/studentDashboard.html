@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Raj Andakat</title>
+    <link rel="stylesheet" href="studentDashboard.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <h1>Student Dashboard</h1>
+        <button class="logout-btn" aria-label="Logout" onclick="window.location.href='index.html'">Logout</button>
+    </header>
+
+    <section class="top-section">
+        <div class="student-info">
+            <img src="images/student_image.png" alt="Student Photo" class="student-photo">
+            <div class="student-details">
+                <h2>Raj Andakat</h2>
+                <p>Student ID : 230879</p>
+                <p>Gender : Female</p>
+            </div>
+        </div>
+
+        <div class="attendance-card">
+            <p class="attendance-title">Attendance</p>
+            <h2 class="attendance-percent">85%</h2>
+            <p class="attendance-score">85/100</p>
+        </div>
+
+        <div class="quote-card" id="quoteCard">
+            <h3>Motivational Quote of the Day ✨</h3>
+            <p id="quoteText">Fetching a motivational quote...</p>
+            <p id="quoteAuthor"></p>
+        </div>
+
+    </section>
+
+    <nav class="tabs">
+        <a href="javascript:void(0)" class="active">General</a>
+        <a href="studentAssessment.html">Assessments</a>
+        <a href="studentAssignment.html">Assignment</a>
+        <a href="studentClasses.html">Classes</a>
+        <a href="studentFees.html">Fees</a>
+    </nav>
+
+    <section class="general-info">
+        <div class="course-info">
+            <p><strong>Course :</strong> B.Tech CSE</p>
+            <p><strong>Full name :</strong> Raj Andakat</p>
+            <p><strong>Mother's name :</strong> Mrs.</p>
+            <p><strong>Father's name :</strong> Mr.</p>
+            <p><strong>Sem Start Date :</strong> 27 Jan 2025</p>
+            <p><strong>Sem End Date :</strong> 27 May 2025</p>
+            <p><strong>Batch :</strong> 2023-27</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Attendance</h3>
+                <p>Total Classes : 145</p>
+                <p class="green">Attended : 116</p>
+                <p class="red">Missed : 29</p>
+                <button class="view-btn" onclick="window.location.href='studentClasses.html'">View Details</button>
+            </div>
+
+            <div class="card">
+                <h3>Exams</h3>
+                <p>Total Exams : 24</p>
+                <p>Attempted : 20 | Unattempt : 4</p>
+                <p class="green">Passed : 18</p>
+                <p class="red">Failed : 2</p>
+                <button class="view-btn" onclick="window.location.href='studentAssessment.html'">View Details</button>
+            </div>
+
+            <div class="card">
+                <h3>Assignments</h3>
+                <p>Total Exams : 54</p>
+                <p>Attempted : 54 | Unattempt : 0</p>
+                <p class="green">Passed : 54</p>
+                <p class="red">Failed : 0</p>
+                <button class="view-btn" onclick="window.location.href='studentAssignment.html'">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="studentDashboard.js"></script>
+</body>
+</html>
