@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="FacultyDashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="images/arrow.png" alt="Back" class="back-arrow">
+            <h2>Teacher Profile</h2>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="images/mam pic.png" alt="Profile Image" class="profile-img">
+            <div class="profile-info">
+                <h3>Nishtha Phutela</h3>
+                <p>Teacher ID: 230879</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <a href="FacultyDashboard.html" class="tab active">General</a>
+            <a href="FacultyCourse.html" class="tab">Course</a>  
+            <a href="FacultyAssignment.html" class="tab">Assignment</a>  
+            <a href="FacultyPerformance.html" class="tab">Performance</a> 
+        </div>
+
+        <!-- Information Section -->
+        <div class="info-container">
+            <div class="general-info">
+                <h3>General Information</h3>
+                <p><strong>Full Name:</strong> Nishtha Phutela</p>
+                <p><strong>Date of Birth:</strong> 24 March 1987</p>
+                <p><strong>Department:</strong> Computer Science</p>
+                <p><strong>Designation:</strong> Professor</p>
+                <p><strong>Specialization:</strong> Data Science</p>
+                <p><strong>Joining Date:</strong> 27 Jan 2010</p>
+            </div>
+
+            <div class="office-details">
+                <h3>Office Details</h3>
+                <p><strong>Center Name:</strong> BML Munjal University</p>
+                <p><strong>Building Name:</strong> Gateway Building</p>
+                <p><strong>Cabin Number:</strong> 20</p>
+                <p><strong>Email:</strong> nishtha.phutela@bmu.edu.in</p>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="card">
+                <h4>Sessions</h4>
+                <p><strong>Total Sessions:</strong> 8</p>
+                <p class="green"><strong>Attended:</strong> 6</p>
+                <p class="red"><strong>Missed:</strong> 2</p>
+                <button style="margin-top: 45px;">View Details</button>
+            </div>
+            <div class="card">
+                <h4>Courses</h4>
+                <p><strong>Total Courses:</strong> 10</p>
+                <p class="green"><strong>Active:</strong> 5</p>
+                <p class="red"><strong>Inactive:</strong> 5</p>
+                <button style="margin-top: 45px;">View Details</button>
+            </div>
+            <div class="card">
+                <h4>Grades</h4>
+                <p><strong>Total Students:</strong> 245</p>
+                <p><strong>Graded:</strong> 120</p>
+                <p class="green"><strong>Passed:</strong> 25</p>
+                <p class="red"><strong>Failed:</strong> 25</p>
+                <button>View Details</button>
+            </div>
+            <div class="card">
+                <h4>Assignments</h4>
+                <p><strong>Total Assignments:</strong> 245</p>
+                <p><strong>Assigned:</strong> 120</p>
+                <p class="green"><strong>Passed:</strong> 95</p>
+                <p class="red"><strong>Failed:</strong> 25</p>
+                <button>View Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Logout -->
+    <script>
+        function logout() {
+            alert("Logging out...");
+            window.location.href = "../index.html";
+        }
+    </script>
+
+</body>
+</html>

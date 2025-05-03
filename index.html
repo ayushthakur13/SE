@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../SE/CMS(Student & Faculty)/images/bmu_logo_icon.jpg">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url('../SE/CMS(Student & Faculty)/images/college_image2.png') no-repeat center center fixed;
+    background-size: contain;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(203, 194, 194, 0.3);
+    backdrop-filter: blur(10px);
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    border-right: 2px solid white;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.logo img {
+    width: 300px;
+    margin-bottom: 1rem;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #111;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button img {
+    width: 25px;
+    height: 25px;
+    margin-right: 1rem;
+}
+
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="logo">
+            <img src="../SE/CMS(Student & Faculty)/images/BMU_logo.png" alt="University Logo">
+        </div>
+        <div class="login-buttons">
+            <button onclick="window.location.href='../SE/CMS(Student & Faculty)/studentLogin.html'" type="button">
+                <img src="../SE/CMS(Student & Faculty)/images/student_icon.png" alt="Student Icon">
+                Student
+            </button>
+            <button onclick="window.location.href='../SE/CMS(Student & Faculty)/facultyLogin.html'" type="button">
+                <img src="../SE/CMS(Student & Faculty)/images/faculty_icon.png" alt="Faculty Icon">
+                Faculty
+            </button>
+            <button onclick="window.location.href='../SE/CMS(Student & Faculty)/adminLogin.html'" type="button">
+                <img src="../SE/CMS(Student & Faculty)/images/admin_icon.png" alt="Admin Icon">
+                Admin
+            </button>
+        </div>
+    </div>
+</body>
+</html>

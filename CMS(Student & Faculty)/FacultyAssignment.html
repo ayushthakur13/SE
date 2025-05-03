@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Profile</title>
+    <link rel="stylesheet" href="FacultyAssignment.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+            <img src="images/arrow.png" alt="Back" class="back-arrow">
+            <h2>Teacher Profile</h2>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <img src="images/mam pic.png" alt="Profile Picture" class="profile-pic">
+        <div class="profile-info">
+            <h3>Nishtha Phutela</h3>
+            <p>Teacher ID: TIPSG5682</p>
+            <p>Gender: Female</p>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <a href="FacultyDashboard.html" class="tab">General</a>
+        <a href="FacultyCourse.html" class="tab">Course</a>
+        <a href="FacultyAssignment.html" class="tab active">Assignment</a>
+        <a href="FacultyPerformance.html" class="tab">Performance</a>
+    </div>
+
+    <!-- Course Summary -->
+    <div class="course-summary">
+        <p>Total Assignments: <span id="totalAssignments">0</span> 
+            <span id="assignedCount" class="active-text">Assigned: 0</span> 
+            <span id="unassignedCount" class="inactive-text">Unassigned: 0</span>
+        </p>
+        <div class="course-buttons">
+            <button class="transparent-btn" onclick="showCreateForm()">Create Assignment</button>
+        </div>
+    </div>
+
+    <!-- Assignment Form (Popup) -->
+    <div id="assignmentForm" class="assignment-form">
+        <div class="form-container">
+            <h3>Create or Edit Assignment</h3>
+            <label for="title">Title</label>
+            <input type="text" id="title">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject">
+            <label for="status">Status</label>
+            <select id="status" onchange="toggleFields()">
+                <option value="assigned">Assigned</option>
+                <option value="unassigned">Unassigned</option>
+            </select>
+            <label for="date">Date</label>
+            <input type="datetime-local" id="date">
+            <div id="assignedFields">
+                <label for="assigned">Assigned Students</label>
+                <input type="number" id="assigned">
+                <label for="viewed">Viewed Students</label>
+                <input type="number" id="viewed">
+                <label for="completed">Completed Students</label>
+                <input type="number" id="completed">
+            </div>
+            <div class="modal-actions">
+                <button class="blue-btn" onclick="saveAssignment()">Save</button>
+                <button class="cancel-btn" onclick="closeForm()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Container -->
+    <div class="course-container" id="assignmentList"></div>
+
+    <script src="FacultyAssignment.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Login</title>
-    <link rel="stylesheet" href="facultyLogin.css">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="adminLogin.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -19,9 +19,10 @@
         <form class="login-form" id="loginForm">
             <input type="text" id="faculty-id" placeholder="Faculty ID" required>
             <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <button type="submit" onclick="window.location.href='/SE/Admin%20Front%2BBackend/adminDashboard.html'">
+                Login
+            </button>
         </form>
-        
 
         <div class="google-login">
             <button class="google-btn" onclick="window.location.href='googleLogin.html'">
@@ -35,6 +36,12 @@
         </div>
     </div>
 
-      
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+          e.preventDefault(); 
+          
+          window.location.href = '/SE/Admin%20Front%2BBackend/adminDashboard.html';
+        });
+      </script>
 </body>
 </html>

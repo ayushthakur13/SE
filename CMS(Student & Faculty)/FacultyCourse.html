@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Profile</title>
+    <link rel="stylesheet" href="FacultyCourse.css">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal input, .modal select {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Back Arrow -->
+        <div class="header">
+            <div class="header-left">
+                <img src="images/arrow.png" alt="Back" class="back-arrow">
+                <h2>Teacher Profile</h2>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="images/mam pic.png" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h3>Nishtha Phutela</h3>
+                <p>Teacher ID: TIPSG5682</p>
+                <p>Gender: Female</p>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <a href="FacultyDashboard.html" class="tab">General</a>
+            <a href="FacultyCourse.html" class="tab active">Course</a>
+            <a href="FacultyAssignment.html" class="tab">Assignment</a>
+            <a href="FacultyPerformance.html" class="tab">Performance</a>
+        </div>
+
+        <!-- Course Summary -->
+         <!-- Course Summary -->
+<div class="course-summary">
+    <p id="courseSummaryText">
+        Total Courses: 25 <span class="active-text" style="color: rgb(53, 173, 53); padding-left: 12px;">Active: 15</span> 
+        <span class="inactive-text" style="color: rgb(236, 48, 23); padding-left: 12px;">Inactive: 10</span>
+    </p>
+    <div class="course-buttons">
+        <button class="grey-btn" onclick="openModal()">ADD COURSE</button>
+    </div>
+</div>
+
+        <!-- <div class="course-summary">
+            <p>Total Courses: 25 <span class="active-text" style="color: rgb(53, 173, 53); padding-left: 12px;">Active: 15</span> <span class="inactive-text" style="color: rgb(236, 48, 23); padding-left: 12px;">Inactive: 10</span></p>
+            <div class="course-buttons">
+                <button class="grey-btn" onclick="openModal()">ADD COURSE</button>
+                <button class="grey-btn">DELETE COURSE</button>
+                <button class="grey-btn">SEE ALL →</button>
+            </div>
+        </div> -->
+
+        <!-- Dynamic Course Container -->
+        <div class="course-container" id="courseContainer"></div>
+    </div>
+
+    <!-- Add/Edit Course Modal -->
+    <!-- Add/Edit Course Modal -->
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <h3 id="modalTitle">Add Course</h3>
+
+        <!-- Course Title -->
+        <label for="courseTitle">Course Title</label>
+        <input type="text" id="courseTitle" placeholder="Enter course title" />
+
+        <!-- Starting Date -->
+        <label for="courseStart">Start Date</label>
+        <input type="date" id="courseStart" />
+
+        <!-- Duration -->
+        <label for="courseDuration">Duration (in months)</label>
+        <input type="number" id="courseDuration" placeholder="e.g. 3" />
+
+        <!-- Status -->
+        <label for="courseStatus">Status</label>
+        <select id="courseStatus">
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+
+        <!-- Buttons -->
+        <div class="modal-actions">
+            <button onclick="saveCourse()" class="blue-btn">Save</button>
+            <button onclick="closeModal()" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- External JavaScript File -->
+    <script src="FacultyCourse.js"></script>
+</body>
+</html>
