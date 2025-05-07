@@ -6,9 +6,6 @@
   <title>Admin - Student Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
     .toast {
       position: fixed;
       bottom: 20px;
@@ -32,19 +29,24 @@
       </div>
       <nav>
         <ul>
-          <li class="text-gray-700 flex items-center gap-2 cursor-pointer">
-            <a href="adminDashboard.html">
+          <li class="mb-4 text-gray-700 hover:bg-gray-100 rounded px-3 py-2 transition flex items-center gap-2 cursor-pointer">
+            <a href="adminDashboard.html" class="flex items-center gap-2 w-full">
               <img src="images/adminDashboardIcon.jpeg" class="w-5 h-5"> Dashboard
             </a>
           </li>
-          <li class="mb-4 text-purple-600 font-semibold flex items-center gap-2">
-            <a href="#">
+          <li class="mb-4 text-purple-600 font-semibold flex items-center gap-2 bg-purple-100 rounded px-3 py-2">
+            <a href="#" class="flex items-center gap-2 w-full">
               <img src="images/adminStudentIcon.jpeg" class="w-5 h-5"> Students
             </a>
           </li>
-          <li class="text-gray-700 flex items-center gap-2 cursor-pointer">
-            <a href="adminFaculty.html">
+          <li class="mb-4 text-gray-700 hover:bg-gray-100 rounded px-3 py-2 transition flex items-center gap-2 cursor-pointer">
+            <a href="adminFaculty.html" class="flex items-center gap-2 w-full">
               <img src="images/adminFacultyIcon.jpeg" class="w-5 h-5"> Teachers
+            </a>
+          </li>
+          <li class="mb-4 text-gray-700 hover:bg-gray-100 rounded px-3 py-2 transition flex items-center gap-2 cursor-pointer">
+            <a href="adminCourse.html" class="flex items-center gap-2 w-full">
+              <img src="images/course_png.png" class="w-5 h-5"> Courses
             </a>
           </li>
         </ul>
